@@ -5,10 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OneArray from './OneArray';
 import VotingApp from './VotingApp';
 import Todos from './Todos';
+import Routing from './Routing';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Todos />
+    <Routing />
   </React.StrictMode>,
   document.getElementById('root')
 );

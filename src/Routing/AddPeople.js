@@ -2,9 +2,12 @@ import React from 'react';
 import {
   Container, Input,
   FormGroup, Label, Button, Col
-} from 'reactstrap'
+} from 'reactstrap';
 import Select from "react-select";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+// import {uuid} from 'uuid'
+
 export default function AddPeople(props) {
   const selectOptions = [
     { value: '', label: 'Chose a Language' },
@@ -20,7 +23,7 @@ export default function AddPeople(props) {
           <h5>Full Name</h5>
           <Input value={props.userName}
             onChange={(e) => props.setUserName(e.target.value)} />
-          {props.setUserName !== '' && (
+          {props.userName === '' && (
             <p style={{ color: 'red' }}>This is a required field and cannot be left blank.</p>
           )}
           <div style={{ padding: '20px' }} />
@@ -33,6 +36,9 @@ export default function AddPeople(props) {
           <h5>Favorite Coding Language</h5>
           <Select options={selectOptions} placeholder='Chose a Language'
             onChange={(e) => props.setUserLanguage(e.value)} />
+          {props.userLanguage === '' && (
+            <p style={{ color: 'red' }}>This is a required field and cannot be left blank.</p>
+          )}
         </Col>
         <div style={{ padding: '20px' }} />
         <Col>

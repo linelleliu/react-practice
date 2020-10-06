@@ -11,7 +11,7 @@ import NavbarPage from './Routing/NavbarPage'
 import Home from './Routing/Home';
 import People from './Routing/People';
 import AddPeople from './Routing/AddPeople';
-
+import axios from 'axios';
 
 
 export default function Routing() {
@@ -38,6 +38,22 @@ export default function Routing() {
     setUserFact('')
   }
 
+  // useEffect(() => {
+  //   axios({
+  //     method: 'get',
+  //     url: ''
+  //   }).then(res => {
+  //     console.log(res.data)
+  //     let dataArray = res.data.map(item => {
+  //       return {
+  //         key: item.userName,
+  //         key1: item.userHome,
+  //         key2: item.userLanguage,
+  //         key3: item.userFact
+  //       }
+  //     })
+  //   })
+  // }, [])
 
 
   return (

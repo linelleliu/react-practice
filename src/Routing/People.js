@@ -10,7 +10,6 @@ export default function People(props) {
   const [activePill, setActivePill] = React.useState('')
 
 
-
   return (
     <>
       <style>

@@ -1,17 +1,16 @@
 import React from 'react';
-import { Button, Container, Card, Col, Row, Badge, Input, Form } from 'reactstrap';
+import { Button, Container, Card, Col, Row, Input } from 'reactstrap';
 
 export default function Todos() {
-  const [userInput, setUserInput] = React.useState('')
-  const [addToDo, setAddToDo] = React.useState([])
-  const [show, setShow] = React.useState('all')
-  const [hover, setHover] = React.useState(false)
+  const [userInput, setUserInput] = React.useState('');
+  const [addToDo, setAddToDo] = React.useState([]);
+  const [show, setShow] = React.useState('all');
+  const [hover, setHover] = React.useState(false);
 
   const addToDoList = () => {
-    if (userInput !== '' && addToDo.find(i => i.name === userInput)) {
+    if (userInput === '' || addToDo.find(i => i.name === userInput)) {
       return
     }
-
     let item = {
       name: userInput,
       type: 'active'
@@ -54,7 +53,7 @@ export default function Todos() {
 
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px 0' }}>
+    <div style={{ textAlign: 'center', padding: '30px 0' }}>
       <Container>
         <h3>To Dos</h3>
         <Input textAlign='center' placeholder='What needs to be done'
@@ -62,7 +61,6 @@ export default function Todos() {
           onChange={(e) => setUserInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' ? addToDoList() : null}
         />
-
 
         {show === 'all' && (
           <>
@@ -77,9 +75,7 @@ export default function Todos() {
                       <h4 style={{ textAlign: 'left' }}>{i.name}</h4>
                     </Col>
                     <Col style={{ textAlign: 'right' }} >
-
                       <Button>X</Button>
-
                     </Col>
                   </Row>
                 </Card>
@@ -88,7 +84,7 @@ export default function Todos() {
 
             {addToDo.filter(i => i.type === 'done').map(item =>
               <div style={{ paddingTop: '10px' }} >
-                <Card style={{ cursos: 'pointer', backgroundColor: 'green' }}>
+                <Card style={{ cursors: 'pointer', backgroundColor: 'green' }}>
                   <Row>
                     <Col md='2'>
                       <Input type='checkbox' checked />
@@ -107,7 +103,7 @@ export default function Todos() {
           <>
             {addToDo.filter(i => i.type === 'active').map(i =>
               <div style={{ paddingTop: '10px' }} key={i}>
-                <Card onClick={() => { checkOff(i, 'done') }} style={{ cursor: 'pointer', backgroundColor: 'green' }}>
+                <Card onClick={() => { checkOff(i, 'done') }} style={{ cursor: 'pointer' }}>
                   <Row>
                     <Col md='2'>
                       <Input type='checkbox' />
@@ -144,17 +140,10 @@ export default function Todos() {
           </>
         )}
 
-        {/* {show === 'clear' && (
-          <>
-          </>
-        )} */}
 
-
-
-
-        <div style={{ paddingTop: '10px' }}>
+        <div style={{ paddingTop: '30px' }}>
           <Card>
-            <Row>
+            <Row style={{ padding: '6px' }}>
               <Col md='3' sm='2'>
                 {addToDo.length} item left
             </Col>

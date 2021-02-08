@@ -7,10 +7,10 @@ export default function Home(props) {
       <Container>
         <Card>
           Summary
-          <div style={{ padding: '12px 30px ' }}>
+          <div style={{ padding: '12px 30px' }}>
             <div>
               <h6 style={{ display: 'inline-block', fontWeight: 'bold' }}>Number of People: </h6>
-              <h6 style={{ display: 'inline-block' }}>   {props.items.length}</h6>
+              <h6 style={{ display: 'inline-block', paddingLeft: '5px' }}>{props.items.length}</h6>
             </div>
             <h6 style={{ fontWeight: 'bold' }}>Favorite Coding Languages:</h6>
             <ul>
